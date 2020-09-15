@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/sach0499/corona-virus-project-v2/issues"
   },
-  "homepage": "https://github.com/sach0499/corona-virus-project-v2#readme"
+  "homepage": "https://github.com/sach0499/corona-virus-project-v2#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.5"
+  }
 }

@@ -1,0 +1,19 @@
+{
+  "name": "corona-virus-project-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sach0499/corona-virus-project-v2.git"
+  },
+  "author": "Sachin Pandey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sach0499/corona-virus-project-v2/issues"
+  },
+  "homepage": "https://github.com/sach0499/corona-virus-project-v2#readme"
+}

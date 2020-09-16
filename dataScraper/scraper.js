@@ -107,7 +107,6 @@ const scrapeData = async () => {
 }
 
 
-scrapeData().then((data)=> console.log(data) )
 
-//module.exports = scrapeData;
+module.exports = scrapeData;
 

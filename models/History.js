@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { stateSchema } = require("./stateModels");
+const { stateSchema } = require("./State");
 
 const historySchema = new mongoose.Schema({
   createdOn: {
@@ -7,36 +7,32 @@ const historySchema = new mongoose.Schema({
     required: true,
   },
 
-  data: {
-    aggregatedData: {
-      totalActive: {
-        type: Number,
-        default: 0,
-      },
-
-      increaseActive: {
-        type: Number,
-        default: 0,
-      },
-      totalRecovered: {
-        type: Number,
-        default: 0,
-      },
-      increaseRecovered: {
-        type: Number,
-        default: 0,
-      },
-      totalDeaths: {
-        type: Number,
-        default: 0,
-      },
-      increaseDeaths: {
-        type: Number,
-        default: 0,
-      },
+  aggregateData: {
+    totalActive: {
+      type: Number,
+      default: 0,
     },
 
-    stateWiseList: [stateSchema],
+    increaseActive: {
+      type: Number,
+      default: 0,
+    },
+    totalRecovered: {
+      type: Number,
+      default: 0,
+    },
+    increaseRecovered: {
+      type: Number,
+      default: 0,
+    },
+    totalDeaths: {
+      type: Number,
+      default: 0,
+    },
+    increaseDeaths: {
+      type: Number,
+      default: 0,
+    },
   },
 });
 

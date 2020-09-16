@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 exports.stateSchema = new mongoose.Schema({
 
-  stateName: {
+  name: {
     type: String,
     required: true
   },

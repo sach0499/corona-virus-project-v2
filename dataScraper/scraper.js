@@ -1,6 +1,5 @@
 const puppeteer = require('puppeteer')
 
-
 const getTodayDate = () => {
 
      let today = new Date();
@@ -25,11 +24,10 @@ const scrapeData = async () => {
   await page.click('a.open-table');
   await page.waitFor(5000);
 
-
- const stateWiseData = await page.evaluate(()=> {
+  const stateWiseData = await page.evaluate(()=> {
  
   const rows = document.querySelectorAll('table.statetable tbody tr');
-  const titles = ['serialNo.' ,'name', 'totalActive', 'increaseActive', 'totalRecovered', 'incrreaseRecovered', 'totalDeaths', 'increaseDeaths'];
+  const titles = ['serialNo.' ,'name', 'totalActive', 'increaseActive', 'totalRecovered', 'increaseRecovered', 'totalDeaths', 'increaseDeaths'];
   const data = []; 
 
 
@@ -70,18 +68,38 @@ const scrapeData = async () => {
     data.push(state)
      
   }
-  
 
      return data;
    })
 
 
-
  await browser.close();
+
+
+ const aggregateData = {
+
+     totalActive: 0,
+     increaseActive: 0,
+     totalRecovered: 0,
+     increaseRecovered: 0,
+     totalDeaths: 0,
+     increaseDeaths: 0
+ };
+
+ stateWiseData.forEach((el, index) => {
+
+     aggregateData.totalActive += el.totalActive;
+     aggregateData.increaseActive += el.increaseActive;
+     aggregateData.totalRecovered += el.totalRecovered;
+     aggregateData.increaseRecovered += el.increaseRecovered;
+     aggregateData.totalDeaths += el.totalDeaths;
+     aggregateData.increaseDeaths += el.increaseDeaths;
+ })
 
  return {
 
      todayDate: getTodayDate(),
+     aggregateData,
      stateWiseData
  };
 
@@ -89,6 +107,7 @@ const scrapeData = async () => {
 }
 
 
+scrapeData().then((data)=> console.log(data) )
 
-module.exports = scrapeData;
+//module.exports = scrapeData;
 

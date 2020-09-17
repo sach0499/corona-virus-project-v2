@@ -12,7 +12,7 @@ mongoose.connect(`mongodb+srv://KillerSachin1999:Remu%24lup1n@cluster0-ntjqw.mon
 
 const app = express();
 
-const PORT = 4300;
+const PORT = process.env.PORT;
 
 app.get("/api/v1/states", getStatesData);
 app.get("/api/v1/histories", getHistory);

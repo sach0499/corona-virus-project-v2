@@ -7,8 +7,9 @@ const xss = require("xss-clean");
 const compression = require("compression");
 
 const { getStatesData, getHistory } = require("./routes");
-const putDataIntoDatabase = require('./dataScraper/putData')
+const putDataIntoDatabase = require("./dataScraper/putData");
 
+const app = express();
 
 // Set security HTTTP headers
 app.use(helmet());
@@ -31,13 +32,13 @@ app.use(xss());
 // for compressing the text responses to client
 app.use(compression());
 
-
-mongoose.connect(`mongodb+srv://KillerSachin1999:Remu%24lup1n@cluster0-ntjqw.mongodb.net/corona-virus-db?retryWrites=true&w=majority`, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-const app = express();
+mongoose.connect(
+  `mongodb+srv://KillerSachin1999:Remu%24lup1n@cluster0-ntjqw.mongodb.net/corona-virus-db?retryWrites=true&w=majority`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 const PORT = process.env.PORT;
 
@@ -46,6 +47,4 @@ app.get("/api/v1/histories", getHistory);
 
 app.listen(PORT, () => console.log(`Server has started at ${PORT}`));
 
-
-setInterval(putDataIntoDatabase, 24*3600*1000);
-
+setInterval(putDataIntoDatabase, 24 * 3600 * 1000);

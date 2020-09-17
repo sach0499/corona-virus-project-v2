@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const { getStatesData, getHistory } = require("./routes");
 const putDataIntoDatabase = require('./dataScraper/putData')
 
-mongoose.connect("mongodb://localhost:27017/corona-virus-db-v2", {
+
+mongoose.connect(`mongodb+srv://KillerSachin1999:Remu%24lup1n@cluster0-ntjqw.mongodb.net/corona-virus-db?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

@@ -25,9 +25,11 @@ exports.getHistory = async (req, res) => {
   try {
     const limit = parseInt(req.query.limit) || 10;
 
-    const histories = await History.find({})
+    const histories = await History.find({}).sort( [['_id', -1]] )
       .limit(limit)
       .select(["-_id", "-__v"]);
+
+      
 
     res.status(200).json({
       message: "success",

@@ -45,7 +45,7 @@ mongoose.connect(
   }
 );
 
-const PORT = process.env.PORT |3400;
+const PORT = process.env.PORT;
 
 app.get("/api/v1/states", getStatesData);
 app.get("/api/v1/histories", getHistory);

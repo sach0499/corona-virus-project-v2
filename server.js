@@ -9,6 +9,7 @@ const compression = require("compression");
 
 const { getStatesData, getHistory } = require("./routes");
 const putDataIntoDatabase = require("./dataScraper/putData");
+const { put } = require("request-promise");
 
 const app = express();
 
@@ -51,4 +52,5 @@ app.get("/api/v1/histories", getHistory);
 
 app.listen(PORT, () => console.log(`Server has started at ${PORT}`));
 
+putDataIntoDatabase();
 setInterval(putDataIntoDatabase, 24 * 3600 * 1000);

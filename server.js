@@ -51,6 +51,4 @@ app.get("/api/v1/histories", getHistory);
 
 app.listen(PORT, () => console.log(`Server has started at ${PORT}`));
 
-//setInterval(putDataIntoDatabase, 24 * 3600 * 1000);
-
-putDataIntoDatabase()
+setInterval(putDataIntoDatabase, 24 * 3600 * 1000);

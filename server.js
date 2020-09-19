@@ -44,11 +44,13 @@ mongoose.connect(
   }
 );
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT |3400;
 
 app.get("/api/v1/states", getStatesData);
 app.get("/api/v1/histories", getHistory);
 
 app.listen(PORT, () => console.log(`Server has started at ${PORT}`));
 
-setInterval(putDataIntoDatabase, 24 * 3600 * 1000);
+//setInterval(putDataIntoDatabase, 24 * 3600 * 1000);
+
+putDataIntoDatabase()

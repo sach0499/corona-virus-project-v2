@@ -14,8 +14,8 @@ exports.getStatesData = async (req, res) => {
       data: statesData,
     });
   } catch {
-    res.status(201).json({
-      status: "failure",
+    res.status(500).json({
+      status: "error",
       message: "Try Again Later!",
     });
   }
@@ -30,13 +30,12 @@ exports.getHistory = async (req, res) => {
       .select(["-_id", "-__v"]);
 
       
-
     res.status(200).json({
-      message: "success",
+      status: "success",
       data: histories,
     });
   } catch {
-    res.status(201).json({
+    res.status(500).json({
       status: "failure",
       message: "Try Again Later!",
     });

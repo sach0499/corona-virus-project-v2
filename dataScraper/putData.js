@@ -1,12 +1,11 @@
-const mongoose = require('mongoose')
 const scrapeData = require('./scraper')
 const {State} = require('./../models/State')
 const History = require('./../models/History')
 
-
+ 
 const putDataIntoDatabase = async ()=> {
 
-     const data = await  scrapeData();
+     const data = await scrapeData();
 
      const stateInput = data.stateWiseData;
      const historyInput = {

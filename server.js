@@ -9,15 +9,16 @@ const app = express();
 
 app.use(cors());
 
+const PASSWORD = process.env.PASSWORD;
+const PORT = process.env.PORT;
+
 mongoose.connect(
-  `mongodb+srv://KillerSachin1999:Remu%24lup1n@cluster0-ntjqw.mongodb.net/corona-virus-db?retryWrites=true&w=majority`,
+  `mongodb+srv://KillerSachin1999:${PASSWORD}@cluster0-ntjqw.mongodb.net/corona-virus-db?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }
 );
-
-const PORT = process.env.PORT;
 
 app.get("/api/v1/states", getStatesData);
 app.get("/api/v1/histories", getHistory);

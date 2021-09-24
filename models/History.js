@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { stateSchema } = require("./State");
 
 const historySchema = new mongoose.Schema({
   createdOn: {
